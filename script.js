@@ -13,6 +13,13 @@ menuToggle?.addEventListener('click', () => {
 });
 
 nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+const heroMenu = document.querySelector('.hero-menu');
+heroMenu?.addEventListener('click', () => {
+  if (!nav) return;
+  const open = nav.classList.toggle('open');
+  heroMenu.setAttribute('aria-expanded', String(open));
+  menuToggle?.setAttribute('aria-expanded', String(open));
+});
 document.addEventListener('click', event => {
   if (nav?.classList.contains('open') && !nav.contains(event.target) && !menuToggle?.contains(event.target)) {
     closeMenu();
