@@ -83,3 +83,10 @@ if ('IntersectionObserver' in window) {
 } else {
   revealItems.forEach(item => item.classList.add('visible'));
 }
+
+const bookingForm = document.querySelector('#booking-form');
+bookingForm?.addEventListener('submit', event => {
+  event.preventDefault();
+  const message = document.querySelector('#form-message');
+  if (message) message.textContent = 'اطلاعات رزرو ثبت شد؛ مرحلهٔ پرداخت آنلاین پس از اتصال درگاه فعال می‌شود.';
+});
